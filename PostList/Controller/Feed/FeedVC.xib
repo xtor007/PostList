@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedVC" customModule="PostList" customModuleProvider="target">
             <connections>
+                <outlet property="loadingLabel" destination="Pjw-Dr-eJn" id="Z3E-ci-qNx"/>
                 <outlet property="postsTable" destination="tqB-9h-Cnp" id="GRx-BZ-2MB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,16 +20,28 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tqB-9h-Cnp">
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tqB-9h-Cnp">
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjw-Dr-eJn">
+                    <rect key="frame" x="169.5" y="437.5" width="75" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="f9c-Mv-U1D"/>
+                        <constraint firstAttribute="width" constant="75" id="jGL-aW-zJu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Pjw-Dr-eJn" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="6Dv-o5-dyS"/>
                 <constraint firstItem="tqB-9h-Cnp" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="9Ag-31-v8z"/>
                 <constraint firstItem="tqB-9h-Cnp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OUV-Lp-Lp0"/>
+                <constraint firstItem="Pjw-Dr-eJn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RgN-4o-EF3"/>
                 <constraint firstItem="tqB-9h-Cnp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="cS7-CC-hgT"/>
                 <constraint firstAttribute="bottom" secondItem="tqB-9h-Cnp" secondAttribute="bottom" id="isg-ta-yZ3"/>
             </constraints>

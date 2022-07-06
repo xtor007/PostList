@@ -13,20 +13,44 @@ class FeedVC: UIViewController {
     var postsTruncatedValues = [TrancatedValue]()
     
     @IBOutlet weak var postsTable: UITableView!
+    @IBOutlet weak var loadingLabel: UILabel!
+    
+    private var sortMenu: UIMenu {
+        return UIMenu(title: "firstly show", image: nil, identifier: nil, options: [], children: [
+            UIAction(title: "Popular", image: nil, handler: { (_) in
+            }),
+            UIAction(title: "New", image: nil, handler: { (_) in
+            })
+        ])
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Feed"
+        title = "Feed"
+        
+        //sort button
+        let imageForMenu = UIImage(named: "sort")?.resized(to: CGSize(width: 35, height: 35))
+        let newButtonItem = UIBarButtonItem(title: "", image: imageForMenu, primaryAction: nil, menu: sortMenu)
+        navigationItem.rightBarButtonItem = newButtonItem
+        
         fillTable()
+        
         //get data
-        APIManager.shared.getAllPosts { posts in
-            self.posts = posts
-            self.postsTruncatedValues = Array(repeating: .truncated, count: posts.count)
-            //reload data in table
-            self.postsTable.isHidden = false
-            self.postsTable.reloadData()
-        } onError: { message in
-            print(message)
+        DispatchQueue.global(qos: .userInitiated).async {
+            APIManager.shared.getAllPosts { posts in
+                self.posts = posts
+                self.postsTruncatedValues = Array(repeating: .truncated, count: posts.count)
+                //reload data in table
+                DispatchQueue.main.async {
+                    self.loadingLabel.isHidden = true
+                    self.postsTable.isHidden = false
+                    self.postsTable.reloadData()
+                }
+            } onError: { message in
+                DispatchQueue.main.async {
+                    self.showError(message: message)
+                }
+            }
         }
     }
     
@@ -57,4 +81,12 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+}
+
+extension UIImage {
+    func resized(to size: CGSize) -> UIImage {
+        return UIGraphicsImageRenderer(size: size).image { _ in
+            draw(in: CGRect(origin: .zero, size: size))
+        }
+    }
 }
