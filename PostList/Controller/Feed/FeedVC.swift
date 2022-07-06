@@ -9,7 +9,8 @@ import UIKit
 
 class FeedVC: UIViewController {
     
-    var posts: [PostInFeed] = []
+    var posts = [PostInFeed]()
+    var postsTruncatedValues = [TrancatedValue]()
     
     @IBOutlet weak var postsTable: UITableView!
 
@@ -20,6 +21,7 @@ class FeedVC: UIViewController {
         //get data
         APIManager.shared.getAllPosts { posts in
             self.posts = posts
+            self.postsTruncatedValues = Array(repeating: .truncated, count: posts.count)
             //reload data in table
             self.postsTable.isHidden = false
             self.postsTable.reloadData()
@@ -45,7 +47,10 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: PostInFeedCell.cellId, for: indexPath) as? PostInFeedCell {
-            cell.initData(posts[indexPath.row])
+            cell.initData(posts[indexPath.row], isTruncated: postsTruncatedValues[indexPath.row]) {
+                self.postsTruncatedValues[indexPath.row].toggle()
+                self.postsTable.reloadData()
+            }
             return cell
         } else {
             return UITableViewCell()
