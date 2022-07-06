@@ -18,6 +18,8 @@ class APIManager {
     
     private let session = URLSession(configuration: .default)
     
+    private init() {}
+    
     //function to get data into the feed
     func getAllPosts(onSuccess: @escaping ([PostInFeed])->(Void), onError: @escaping (String)->(Void)) {
         guard let url = URL(string: "\(serverLink)\(feedLink)\(jsonString)") else {
@@ -25,27 +27,25 @@ class APIManager {
             return
         }
         let task = session.dataTask(with: url) { data, response, error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    onError(error.localizedDescription)
-                    return
+            if let error = error {
+                onError(error.localizedDescription)
+                return
+            }
+            guard let data = data, let response = response as? HTTPURLResponse else {
+                onError("Invalid data or response")
+                return
+            }
+            do {
+                if response.statusCode == 200 {
+                    let result = try JSONDecoder().decode(PostInFeedData.self, from: data)
+                    onSuccess(result.posts)
+                } else {
+                    let err = try JSONDecoder().decode(String.self, from: data)
+                    onError("Server return error: \(err)")
                 }
-                guard let data = data, let response = response as? HTTPURLResponse else {
-                    onError("Invalid data or response")
-                    return
-                }
-                do {
-                    if response.statusCode == 200 {
-                        let result = try JSONDecoder().decode(PostInFeedData.self, from: data)
-                        onSuccess(result.posts)
-                    } else {
-                        let err = try JSONDecoder().decode(String.self, from: data)
-                        onError("Server return error: \(err)")
-                    }
-                }
-                catch {
-                    onError(error.localizedDescription)
-                }
+            }
+            catch {
+                onError(error.localizedDescription)
             }
         }
         task.resume()

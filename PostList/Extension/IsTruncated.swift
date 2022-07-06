@@ -19,9 +19,6 @@ extension UILabel {
             options: .usesLineFragmentOrigin,
             attributes: [.font: font!],
             context: nil).size
-        print(labelTextSize.height)
-        print(bounds.size.height)
-        print(frame.height)
         return labelTextSize.height > bounds.size.height
     }
     
