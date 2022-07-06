@@ -16,6 +16,7 @@
 		FF4E4C682875A30100AA5071 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E4C672875A30100AA5071 /* APIManager.swift */; };
 		FF4E4C6C2875AC2D00AA5071 /* PostInFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E4C6A2875AC2D00AA5071 /* PostInFeedCell.swift */; };
 		FF4E4C6D2875AC2D00AA5071 /* PostInFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF4E4C6B2875AC2D00AA5071 /* PostInFeedCell.xib */; };
+		FF4E4C702875FB9900AA5071 /* IsTruncated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E4C6F2875FB9800AA5071 /* IsTruncated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FF4E4C672875A30100AA5071 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		FF4E4C6A2875AC2D00AA5071 /* PostInFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInFeedCell.swift; sourceTree = "<group>"; };
 		FF4E4C6B2875AC2D00AA5071 /* PostInFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostInFeedCell.xib; sourceTree = "<group>"; };
+		FF4E4C6F2875FB9800AA5071 /* IsTruncated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsTruncated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		FF4E4C4528758B2A00AA5071 /* PostList */ = {
 			isa = PBXGroup;
 			children = (
+				FF4E4C6E2875FB6D00AA5071 /* Extension */,
 				FF4E4C5F28758C4300AA5071 /* Resources */,
 				FF4E4C5E28758C1E00AA5071 /* Manager */,
 				FF4E4C5D28758BE800AA5071 /* Controller */,
@@ -138,6 +141,14 @@
 				FF4E4C6B2875AC2D00AA5071 /* PostInFeedCell.xib */,
 			);
 			path = PostInFeedCell;
+			sourceTree = "<group>";
+		};
+		FF4E4C6E2875FB6D00AA5071 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FF4E4C6F2875FB9800AA5071 /* IsTruncated.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +228,7 @@
 				FF4E4C682875A30100AA5071 /* APIManager.swift in Sources */,
 				FF4E4C4728758B2A00AA5071 /* AppDelegate.swift in Sources */,
 				FF4E4C4928758B2A00AA5071 /* SceneDelegate.swift in Sources */,
+				FF4E4C702875FB9900AA5071 /* IsTruncated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
