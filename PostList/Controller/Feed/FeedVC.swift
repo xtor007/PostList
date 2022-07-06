@@ -15,11 +15,17 @@ class FeedVC: UIViewController {
     @IBOutlet weak var postsTable: UITableView!
     @IBOutlet weak var loadingLabel: UILabel!
     
+    private var sortParameter = SortType.date
+    
     private var sortMenu: UIMenu {
         return UIMenu(title: "firstly show", image: nil, identifier: nil, options: [], children: [
             UIAction(title: "Popular", image: nil, handler: { (_) in
+                self.sort(by: .likes)
+                self.postsTable.reloadData()
             }),
             UIAction(title: "New", image: nil, handler: { (_) in
+                self.sort()
+                self.postsTable.reloadData()
             })
         ])
     }
@@ -36,19 +42,21 @@ class FeedVC: UIViewController {
         fillTable()
         
         //get data
-        DispatchQueue.global(qos: .userInitiated).async {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             APIManager.shared.getAllPosts { posts in
-                self.posts = posts
-                self.postsTruncatedValues = Array(repeating: .truncated, count: posts.count)
+                self?.posts = posts
+                self?.postsTruncatedValues = Array(repeating: .truncated, count: posts.count)
+                self?.sort()
+                
                 //reload data in table
                 DispatchQueue.main.async {
-                    self.loadingLabel.isHidden = true
-                    self.postsTable.isHidden = false
-                    self.postsTable.reloadData()
+                    self?.loadingLabel.isHidden = true
+                    self?.postsTable.isHidden = false
+                    self?.postsTable.reloadData()
                 }
             } onError: { message in
                 DispatchQueue.main.async {
-                    self.showError(message: message)
+                    self?.showError(message: message)
                 }
             }
         }
@@ -59,6 +67,23 @@ class FeedVC: UIViewController {
         postsTable.register(UINib(nibName: PostInFeedCell.nibName, bundle: nil), forCellReuseIdentifier: PostInFeedCell.cellId)
         postsTable.delegate = self
         postsTable.dataSource = self
+    }
+    
+    //sort function
+    private func sort(by sortType: SortType = .date) {
+        if sortType == .date {
+            posts = posts.sorted { firstPost, secondPost in
+                return firstPost.timeshamp > secondPost.timeshamp
+            }
+        } else {
+            posts = posts.sorted { firstPost, secondPost in
+                return firstPost.likes_count > secondPost.likes_count
+            }
+        }
+    }
+    
+    enum SortType {
+        case date, likes
     }
 
 }
@@ -81,12 +106,4 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-}
-
-extension UIImage {
-    func resized(to size: CGSize) -> UIImage {
-        return UIGraphicsImageRenderer(size: size).image { _ in
-            draw(in: CGRect(origin: .zero, size: size))
-        }
-    }
 }
