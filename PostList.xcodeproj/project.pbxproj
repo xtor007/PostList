@@ -14,6 +14,8 @@
 		FF4E4C6428758CD500AA5071 /* FeedVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF4E4C6228758CD500AA5071 /* FeedVC.xib */; };
 		FF4E4C662875A1E700AA5071 /* PostInFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E4C652875A1E700AA5071 /* PostInFeed.swift */; };
 		FF4E4C682875A30100AA5071 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E4C672875A30100AA5071 /* APIManager.swift */; };
+		FF4E4C6C2875AC2D00AA5071 /* PostInFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E4C6A2875AC2D00AA5071 /* PostInFeedCell.swift */; };
+		FF4E4C6D2875AC2D00AA5071 /* PostInFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF4E4C6B2875AC2D00AA5071 /* PostInFeedCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		FF4E4C6228758CD500AA5071 /* FeedVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedVC.xib; sourceTree = "<group>"; };
 		FF4E4C652875A1E700AA5071 /* PostInFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInFeed.swift; sourceTree = "<group>"; };
 		FF4E4C672875A30100AA5071 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		FF4E4C6A2875AC2D00AA5071 /* PostInFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInFeedCell.swift; sourceTree = "<group>"; };
+		FF4E4C6B2875AC2D00AA5071 /* PostInFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostInFeedCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		FF4E4C5B28758BD900AA5071 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FF4E4C692875ABD800AA5071 /* PostInFeedCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -124,6 +129,15 @@
 				FF4E4C6228758CD500AA5071 /* FeedVC.xib */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		FF4E4C692875ABD800AA5071 /* PostInFeedCell */ = {
+			isa = PBXGroup;
+			children = (
+				FF4E4C6A2875AC2D00AA5071 /* PostInFeedCell.swift */,
+				FF4E4C6B2875AC2D00AA5071 /* PostInFeedCell.xib */,
+			);
+			path = PostInFeedCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF4E4C6D2875AC2D00AA5071 /* PostInFeedCell.xib in Resources */,
 				FF4E4C6428758CD500AA5071 /* FeedVC.xib in Resources */,
 				FF4E4C5028758B3200AA5071 /* Assets.xcassets in Resources */,
 			);
@@ -196,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF4E4C6C2875AC2D00AA5071 /* PostInFeedCell.swift in Sources */,
 				FF4E4C662875A1E700AA5071 /* PostInFeed.swift in Sources */,
 				FF4E4C6328758CD500AA5071 /* FeedVC.swift in Sources */,
 				FF4E4C682875A30100AA5071 /* APIManager.swift in Sources */,
