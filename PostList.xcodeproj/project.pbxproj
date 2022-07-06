@@ -19,6 +19,9 @@
 		FF4E4C702875FB9900AA5071 /* IsTruncated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E4C6F2875FB9800AA5071 /* IsTruncated.swift */; };
 		FF4E4C732876395900AA5071 /* ShowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E4C722876395900AA5071 /* ShowError.swift */; };
 		FF4E4C752876403D00AA5071 /* Resized.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E4C742876403D00AA5071 /* Resized.swift */; };
+		FF4E4C7F2876461500AA5071 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E4C7D2876461500AA5071 /* PostVC.swift */; };
+		FF4E4C802876461500AA5071 /* PostVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF4E4C7E2876461500AA5071 /* PostVC.xib */; };
+		FF4E4C8228764DAE00AA5071 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E4C8128764DAE00AA5071 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		FF4E4C6F2875FB9800AA5071 /* IsTruncated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsTruncated.swift; sourceTree = "<group>"; };
 		FF4E4C722876395900AA5071 /* ShowError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowError.swift; sourceTree = "<group>"; };
 		FF4E4C742876403D00AA5071 /* Resized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resized.swift; sourceTree = "<group>"; };
+		FF4E4C7D2876461500AA5071 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
+		FF4E4C7E2876461500AA5071 /* PostVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostVC.xib; sourceTree = "<group>"; };
+		FF4E4C8128764DAE00AA5071 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				FF4E4C652875A1E700AA5071 /* PostInFeed.swift */,
+				FF4E4C8128764DAE00AA5071 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -108,6 +115,7 @@
 		FF4E4C5D28758BE800AA5071 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FF4E4C762876444300AA5071 /* Post */,
 				FF4E4C6028758CBD00AA5071 /* Feed */,
 			);
 			path = Controller;
@@ -155,6 +163,15 @@
 				FF4E4C742876403D00AA5071 /* Resized.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		FF4E4C762876444300AA5071 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				FF4E4C7D2876461500AA5071 /* PostVC.swift */,
+				FF4E4C7E2876461500AA5071 /* PostVC.xib */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +234,7 @@
 			files = (
 				FF4E4C6D2875AC2D00AA5071 /* PostInFeedCell.xib in Resources */,
 				FF4E4C6428758CD500AA5071 /* FeedVC.xib in Resources */,
+				FF4E4C802876461500AA5071 /* PostVC.xib in Resources */,
 				FF4E4C5028758B3200AA5071 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,9 +247,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF4E4C6C2875AC2D00AA5071 /* PostInFeedCell.swift in Sources */,
+				FF4E4C8228764DAE00AA5071 /* Post.swift in Sources */,
 				FF4E4C662875A1E700AA5071 /* PostInFeed.swift in Sources */,
 				FF4E4C6328758CD500AA5071 /* FeedVC.swift in Sources */,
 				FF4E4C682875A30100AA5071 /* APIManager.swift in Sources */,
+				FF4E4C7F2876461500AA5071 /* PostVC.swift in Sources */,
 				FF4E4C4728758B2A00AA5071 /* AppDelegate.swift in Sources */,
 				FF4E4C732876395900AA5071 /* ShowError.swift in Sources */,
 				FF4E4C4928758B2A00AA5071 /* SceneDelegate.swift in Sources */,
