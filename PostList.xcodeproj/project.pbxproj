@@ -12,6 +12,8 @@
 		FF4E4C5028758B3200AA5071 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF4E4C4F28758B3200AA5071 /* Assets.xcassets */; };
 		FF4E4C6328758CD500AA5071 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E4C6128758CD500AA5071 /* FeedVC.swift */; };
 		FF4E4C6428758CD500AA5071 /* FeedVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF4E4C6228758CD500AA5071 /* FeedVC.xib */; };
+		FF4E4C662875A1E700AA5071 /* PostInFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E4C652875A1E700AA5071 /* PostInFeed.swift */; };
+		FF4E4C682875A30100AA5071 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4E4C672875A30100AA5071 /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		FF4E4C5428758B3200AA5071 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF4E4C6128758CD500AA5071 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		FF4E4C6228758CD500AA5071 /* FeedVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedVC.xib; sourceTree = "<group>"; };
+		FF4E4C652875A1E700AA5071 /* PostInFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInFeed.swift; sourceTree = "<group>"; };
+		FF4E4C672875A30100AA5071 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 		FF4E4C5C28758BE100AA5071 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FF4E4C652875A1E700AA5071 /* PostInFeed.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 		FF4E4C5E28758C1E00AA5071 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				FF4E4C672875A30100AA5071 /* APIManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -190,7 +196,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF4E4C662875A1E700AA5071 /* PostInFeed.swift in Sources */,
 				FF4E4C6328758CD500AA5071 /* FeedVC.swift in Sources */,
+				FF4E4C682875A30100AA5071 /* APIManager.swift in Sources */,
 				FF4E4C4728758B2A00AA5071 /* AppDelegate.swift in Sources */,
 				FF4E4C4928758B2A00AA5071 /* SceneDelegate.swift in Sources */,
 			);

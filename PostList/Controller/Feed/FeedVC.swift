@@ -11,8 +11,13 @@ class FeedVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Feed"
+        APIManager.shared.getAllPosts { posts in
+            print(posts)
+        } onError: { message in
+            print(message)
+        }
 
-        // Do any additional setup after loading the view.
     }
 
 }
