@@ -17,10 +17,13 @@ class PostVC: UIViewController {
     
     var postId: Int
     var post: Post!
+    
+    var spinner: UIView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Post"
+        showLoading(onView: postImage)
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             APIManager.shared.getPost(byId: self!.postId) { post in
                 self?.post = post
@@ -31,6 +34,17 @@ class PostVC: UIViewController {
                     self?.descriptionLabel.text = post.text
                     self?.likesLabel.text = "❤️\(post.likes_count)"
                     self?.dateLabel.text = date.formatted(date: .long, time: .omitted)
+                }
+                APIManager.shared.getPhoto(byLink: post.postImage) { image in
+                    DispatchQueue.main.async {
+                        self?.postImage.image = image
+                        self?.spinner?.removeFromSuperview()
+                        self?.spinner = nil
+                    }
+                } onError: { message in
+                    DispatchQueue.main.async {
+                        self?.showError(message: message)
+                    }
                 }
             } onError: { message in
                 DispatchQueue.main.async {
@@ -47,6 +61,19 @@ class PostVC: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //add spinner
+    private func showLoading(onView view: UIView) {
+        let spinnerView = UIView(frame: view.bounds)
+        spinnerView.backgroundColor = .gray
+        spinnerView.backgroundColor = spinnerView.backgroundColor?.withAlphaComponent(0.1)
+        let ai = UIActivityIndicatorView(style: .medium)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        spinnerView.addSubview(ai)
+        view.addSubview(spinnerView)
+        spinner = spinnerView
     }
     
 }

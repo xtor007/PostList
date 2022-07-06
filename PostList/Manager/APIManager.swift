@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class APIManager {
     
@@ -77,6 +78,34 @@ class APIManager {
             }
             catch {
                 onError(error.localizedDescription)
+            }
+        }
+        task.resume()
+    }
+    
+    //function to get photo
+    func getPhoto(byLink link: String, onSuccess: @escaping (UIImage)->(Void), onError: @escaping (String)->(Void)) {
+        guard let url = URL(string: link) else {
+            onError("Failed link")
+            return
+        }
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                onError(error.localizedDescription)
+                return
+            }
+            guard let data = data, let response = response as? HTTPURLResponse else {
+                onError("Invalid data or response")
+                return
+            }
+            if response.statusCode == 200 {
+                if let image = UIImage(data: data) {
+                    onSuccess(image)
+                } else {
+                    onError("It isn't photo link")
+                }
+            } else {
+                onError("Server return error")
             }
         }
         task.resume()
