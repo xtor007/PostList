@@ -9,7 +9,7 @@ import Foundation
 
 struct PostInFeed: Decodable {
     var postId: Int
-    var timeshamp: Int
+    var timeshamp: TimeInterval
     var title: String
     var preview_text: String
     var likes_count: Int
