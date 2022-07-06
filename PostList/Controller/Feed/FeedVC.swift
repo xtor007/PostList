@@ -106,4 +106,9 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let postVC = PostVC(id: posts[indexPath.row].postId)
+        present(postVC, animated: true)
+    }
+    
 }
