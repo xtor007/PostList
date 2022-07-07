@@ -72,6 +72,16 @@ class PostVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //close after swipe
+    @IBAction func swipeAction(_ sender: Any) {
+        if let swipe = sender as? UISwipeGestureRecognizer {
+            if swipe.direction == .right {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+    
+    
     //add spinner
     private func showLoading(onView view: UIView) {
         let spinnerView = UIView(frame: view.bounds)
