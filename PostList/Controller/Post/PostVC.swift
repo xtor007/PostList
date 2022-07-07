@@ -23,6 +23,13 @@ class PostVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Post"
+        
+        //add back button
+        let backButton = UIBarButtonItem(title: "Back", image: UIImage(systemName: "chevron.backward"), primaryAction: UIAction(handler: { _ in
+            self.navigationController?.popViewController(animated: true)
+        }), menu: nil)
+        navigationItem.leftBarButtonItem = backButton
+        
         showLoading(onView: postImage)
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             APIManager.shared.getPost(byId: self!.postId) { post in
@@ -35,6 +42,8 @@ class PostVC: UIViewController {
                     self?.likesLabel.text = "❤️\(post.likes_count)"
                     self?.dateLabel.text = date.formatted(date: .long, time: .omitted)
                 }
+                
+                //load photo
                 APIManager.shared.getPhoto(byLink: post.postImage) { image in
                     DispatchQueue.main.async {
                         self?.postImage.image = image
