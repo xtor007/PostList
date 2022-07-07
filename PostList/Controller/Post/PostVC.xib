@@ -73,6 +73,7 @@
                             </subviews>
                         </stackView>
                     </subviews>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstItem="Y7W-6q-1Iw" firstAttribute="trailing" secondItem="Jwl-qh-9NB" secondAttribute="trailing" id="7sw-LY-nFY"/>
                         <constraint firstItem="Y7W-6q-1Iw" firstAttribute="width" secondItem="4ON-ra-2ir" secondAttribute="width" id="EJS-4i-1ou"/>
@@ -82,6 +83,9 @@
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="Jwl-qh-9NB"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="4ON-ra-2ir"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="HFM-1G-Hlw" appends="YES" id="sC7-5X-gDs"/>
+                    </connections>
                 </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -94,6 +98,11 @@
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="84.375"/>
         </view>
+        <swipeGestureRecognizer direction="right" id="HFM-1G-Hlw">
+            <connections>
+                <action selector="swipeAction:" destination="-1" id="2dc-yW-m0Y"/>
+            </connections>
+        </swipeGestureRecognizer>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
