@@ -15,10 +15,10 @@ class PostVC: UIViewController {
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    var postId: Int
-    var post: Post!
+    private var postId: Int
+    private var post: Post!
     
-    var spinner: UIView?
+    private var spinner: UIView?
 
     override func viewDidLoad() {
         super.viewDidLoad()

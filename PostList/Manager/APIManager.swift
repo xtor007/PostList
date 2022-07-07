@@ -5,7 +5,6 @@
 //  Created by Anatoliy Khramchenko on 06.07.2022.
 //
 
-import Foundation
 import UIKit
 
 class APIManager {
