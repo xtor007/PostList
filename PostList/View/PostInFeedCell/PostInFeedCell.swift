@@ -55,6 +55,8 @@ class PostInFeedCell: UITableViewCell {
             expandButtonConstraintHeight.constant = expandButtonHeight
         }
         likesLabel.text = "❤️\(data.likes_count)"
+        
+        //date
         let postDate = Date(timeIntervalSince1970: data.timeshamp)
         let daysAgoCount = Int(postDate.distance(to: currentDate)/3600/24) //3600 seconds in hour && 24 hours in day
         var timeDescription = "days ago"

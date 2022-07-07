@@ -79,6 +79,7 @@ class FeedVC: UIViewController {
                 return firstPost.likes_count > secondPost.likes_count
             }
         }
+        postsTruncatedValues = Array(repeating: .truncated, count: posts.count)
     }
     
     enum SortType {
