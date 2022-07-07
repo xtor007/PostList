@@ -15,7 +15,7 @@ class FeedVC: UIViewController {
     @IBOutlet weak var postsTable: UITableView!
     @IBOutlet weak var loadingLabel: UILabel!
     
-    private var sortParameter = SortType.date
+    private var sortParameter = SortType.none
     
     private var sortMenu: UIMenu {
         return UIMenu(title: "firstly show", image: nil, identifier: nil, options: [], children: [
@@ -46,7 +46,6 @@ class FeedVC: UIViewController {
             APIManager.shared.getAllPosts { posts in
                 self?.posts = posts
                 self?.postsTruncatedValues = Array(repeating: .truncated, count: posts.count)
-                self?.sort()
                 
                 //reload data in table
                 DispatchQueue.main.async {
@@ -83,7 +82,7 @@ class FeedVC: UIViewController {
     }
     
     enum SortType {
-        case date, likes
+        case date, likes, none
     }
 
 }
